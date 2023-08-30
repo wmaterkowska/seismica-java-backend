@@ -20,11 +20,6 @@ public class EventsController {
     private String eventsHttp = "http://service.iris.edu/fdsnws/event/1/query";
     private EventsParser eventsParser = new EventsParser();
 
-    @RequestMapping("/hello")
-    public String hello() {
-        return "Hello world";
-    }
-
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(value = "/earthquakes/{sdate}/{edate}/{minM}/{maxM}")
     public CatalogObject getEvents(@PathVariable String sdate,
