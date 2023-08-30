@@ -25,6 +25,7 @@ public class EventsController {
         return "Hello world";
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(value = "/earthquakes/{sdate}/{edate}/{minM}/{maxM}")
     public CatalogObject getEvents(@PathVariable String sdate,
                                     @PathVariable String edate,
@@ -39,12 +40,11 @@ public class EventsController {
                     new InputStreamReader(response, StandardCharsets.UTF_8))
                     .lines()
                     .collect(Collectors.joining("\n"));
-    //        System.out.println(data);
             return data;
         });
 
         CatalogObject eventsObject = eventsParser.parseEventsData(events);
 
-    return eventsObject;
+        return eventsObject;
     }
 }

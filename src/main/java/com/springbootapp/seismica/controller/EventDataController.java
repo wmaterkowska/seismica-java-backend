@@ -5,7 +5,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
-public class EventDataService {
+public class EventDataController {
+
+
+
 
     @GetMapping(value = "/eventData/:date")
     private String getEvents(){
